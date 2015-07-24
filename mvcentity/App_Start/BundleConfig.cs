@@ -23,8 +23,12 @@ namespace mvcentity
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/material").Include(
+                      "~/Scripts/material.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/material.css",
                       "~/Content/site.css"));
         }
     }
