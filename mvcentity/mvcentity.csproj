@@ -140,6 +140,7 @@
     <Compile Include="Models\Einkauf.cs" />
     <Compile Include="Models\Speiseplan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EinkaufViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\images\user.jpg" />

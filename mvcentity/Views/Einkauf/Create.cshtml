@@ -4,15 +4,20 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<script type="text/javascript">
+    function updateTextInput(val) {
+        document.getElementById('textInput').value = val;
+    }
+</script>
 
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
-    @Html.AntiForgeryToken()
     
+
+    @Html.AntiForgeryToken()
+
     <div class="form-horizontal">
-        <h4>Item</h4>
+        <h4 class="mdl-typography--title">Neuer Einkauf Gegenstand</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -25,15 +30,17 @@
 
         <div class="form-group">
             @Html.LabelFor(model => model.Anzahl, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Anzahl, new { htmlAttributes = new { @class = "form-control" } })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.Anzahl, new { htmlAttributes = new { @id="textInput",  @class="form-control" } })
                 @Html.ValidationMessageFor(model => model.Anzahl, "", new { @class = "text-danger" })
             </div>
-        </div>
+                <input type="range" class="mdl-slider mdl-js-slider" name="rangeInput" min="0" max="20" value="1" onchange="updateTextInput(this.value);">
+            </div>
+ 
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="mdl-button mdl-js-button mdl-button--colored" />
             </div>
         </div>
     </div>
