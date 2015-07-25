@@ -11,7 +11,7 @@
 </head>
 <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-        <header class="demo-header mdl-layout__header mdl-color-text--grey-100">
+        <header class="demo-header mdl-layout__header">
             <div class="mdl-layout__header-row">
                 <h3 class="mdl-typography--headline">HomeNet</h3>
 
@@ -60,7 +60,7 @@
                     <a class="mdl-navigation__link my-drawer-link" href=""><i class="material-icons my-drawer-link">event</i>Kalender</a>
                     <a class="mdl-navigation__link my-drawer-link" href=""><i class="material-icons my-drawer-link">restaurant_menu</i>Speiseplan</a>
                     <a class="mdl-navigation__link my-drawer-link" href=""><i class="material-icons my-drawer-link">list</i>ToDo</a>
-                    <a class="mdl-navigation__link my-drawer-link" href=""><i class="material-icons my-drawer-link">shopping_cart</i>Einkauf</a>
+                    <a class="mdl-navigation__link my-drawer-link" href="@Url.Action("Index", "Einkauf")"><i class="material-icons my-drawer-link">shopping_cart</i>Einkauf</a>
                     <a class="mdl-navigation__link my-drawer-link" href="@Url.Action("Index", "Buchhaltung")"><i class="material-icons my-drawer-link">$</i>Finanzen</a>
                     <div class="mdl-layout-spacer"></div>
                     <a class="mdl-navigation__link my-drawer-link" href=""><i class="material-icons">help_outline</i></a>
@@ -73,6 +73,7 @@
 @Scripts.Render("~/bundles/jquery")
 @Scripts.Render("~/bundles/bootstrap")
 @Scripts.Render("~/bundles/material")
+<script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
 @RenderSection("scripts", required: false)
 </body>
 </html>

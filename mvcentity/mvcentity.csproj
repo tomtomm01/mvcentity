@@ -131,11 +131,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BuchhaltungController.cs" />
+    <Compile Include="Controllers\EinkaufController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Buchhaltung.cs" />
+    <Compile Include="Models\Einkauf.cs" />
+    <Compile Include="Models\Speiseplan.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +188,11 @@
     <Content Include="Views\Buchhaltung\Edit.cshtml" />
     <Content Include="Views\Buchhaltung\Index.cshtml" />
     <Content Include="Scripts\material.min.js.map" />
+    <Content Include="Views\Einkauf\Create.cshtml" />
+    <Content Include="Views\Einkauf\Delete.cshtml" />
+    <Content Include="Views\Einkauf\Details.cshtml" />
+    <Content Include="Views\Einkauf\Edit.cshtml" />
+    <Content Include="Views\Einkauf\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

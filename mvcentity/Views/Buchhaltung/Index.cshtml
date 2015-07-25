@@ -3,69 +3,107 @@
 @{
     ViewBag.Title = "Index";
 }
+
+<style>
+    #view-source {
+        position: fixed;
+        display: block;
+        right: 0;
+        bottom: 0;
+        margin-right: 795px;
+        margin-bottom: 645px;
+        z-index: 900;
+    }
+</style>
+
+
+
 <div class="mdl-grid mdl-grid--no-spacing">
 
-    <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+    <div class="mdl-color--white mdl-shadow--4dp mdl-cell mdl-cell--12-col mdl-grid">
         <div>
             <h2 class="mdl-typography--headline">Finanzen <small> Einnahmen und Ausgaben</small></h2>
         </div>
+        
     </div>
-
+    <!--
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div style="padding:15px">
-            <a href="@Url.Action("Create New","Create")" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <div>
+            <a href="@Url.Action("Create","Buchhaltung")" id="view-source"  
+               class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
                 <i class="material-icons">add</i>
             </a>
         </div>
     </div>
-
+        -->
 
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col">
-        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="padding:15px;margin:0 auto;font-size:12px">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Summe)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Datum)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.IstAusgabe)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Information)
-                </th>
-                <th></th>
+        <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" style="margin:35px auto;">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Summe)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Information)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Datum)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.IstAusgabe == true)
+        {
+            <tr style="background-color:#ffe8e8">
+                <td style="padding-left:45px">
+                    @Html.DisplayFor(modelItem => item.Summe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Information)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum)
+                </td>
+                <td style="padding-left:45px">
+                    @Html.ActionLink("Bearbeiten", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Löschen", "Delete", new { id = item.Id })
+                </td>
             </tr>
+        }
+        else
+        {
+            <tr style="background-color:#eaffe1">
+                <td style="padding-left:45px">
+                    @Html.DisplayFor(modelItem => item.Summe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Information)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Datum)
+                </td>
+                <td>
+                    @Html.ActionLink("Bearbeiten", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Löschen", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
 
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Summe)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Datum)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.IstAusgabe)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Information)
-                    </td>
-                    <td>
-                        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                    </td>
-                </tr>
-            }
-
-        </table>
+    </table>
     </div>
 
+    <a href="@Url.Action("Create","Buchhaltung")" id="view-source"
+       class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+        <i class="material-icons">add</i>
+    </a>
+
     <div class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-        <div style="height:150px;">
+        <div style="height:35px;">
             
         </div>
     </div>
